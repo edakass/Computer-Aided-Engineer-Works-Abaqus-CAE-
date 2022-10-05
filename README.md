@@ -4,42 +4,75 @@ My Project topic is:
 10.5 Example: blast loading on a stiffened plate
 
 *I created a three-dimensional  deformable part featuring an extruded shell base to represent the plate. I used about 5.0 piece size and named the piece Plate.
+
 *I defined the stiffener geometry, added three vertical lines extending up from the plate. 
+
 *I constrained the three vertical lines so they are of equal length, and dimension one of them so that it is 0.1 m long.
+
 *I splited the plate at the points where it intersects the stiffeners.
+
 *I dimensioned the horizontal distance between the plate endpoints, and set the value to 2.0 m.
+
 *I applied equal length constraints to the four horizontal segments of the line.
+
 *I extruded the sketch to a depth of 2.0 m to create the plate.
+
 *I defined the material and section properties for the plate and the stiffeners.
+
 *I created a material named "Steel" with a "mass density" of 7800 kg/m3, a "Young's modulus" of 210.0E9 Pa, and a "Poisson's" ratio of 0.3.
+
 *The initial yield stress is 300 MPa, and the yield stress increases to 400 MPa at a plastic strain of 35%.
+
 * The data are regularized by Abaqus/Explicit by expanding the data to 15 equally spaced points with increments of 0.025.
+
 *I was set the regularization tolerance back to the default value (0.03) and remove the additional pair of data points.
+
 *I created two homogeneous shell section properties, each referring to the steel material definition but specifying different shell thicknesses.
+
 *I named the first shell section property PlateSection, select Steel as the material, and specify 0.025 m as the value for the Shell thickness.
+
 *I named the second shell section property StiffSection, select Steel as the material, and specify 0.0125 m as the value for the Shell thickness.
+
 *I assigned the StiffSection definition to the stiffeners (I used [Shift] + Click to select multiple regions in the viewport).
+
 *I was query the shell normals (ToolsQuery) and note the color of the side of the plate facing the stiffeners (brown is the positive side; purple is the negative side).
+
 *I was  assign the PlateSection definition to the regions of the plate.
+
 *I was in the Edit Section Assignment dialog box, set the shell offset to Top surfaced if the brown (positive) side of the plate faces the stiffeners and Bottom surfaced if the purple (negative) side faces the stiffeners.
+
 *I was to verify the offset, selected ViewPart Display Options.
+
 * I was in the Part Display Options dialog box that appears, toggled on Render shell thickness. I modified the offset to removed any overlap.
+* 
 *I created one set named Edge for the plate edges and one set named Center at the center of the intersection of the plate and the middle stiffener.I was To create the set Center, you need to first partition the edge of the original part in half using the Partition Edge: I Entered Parameter  tool.
+
 *I created a single dynamic, explicit step. I named the step Blast.I applied blast loading. I entered a value of 50E-3 s for the time period of the step.
 
-
 *I  tried to limit the number of frames written during the analysis to keep the size of the output database file reasonable.
+
 *In this analysis saving information every 2 ms should provide sufficient detail to study the response of the structure. 
+
 *I created a history output request named Center-U2 for the step Blast.
+
 *I selected Center as the output domain, and select U2 as the translation output variable. 
+
 *I entered 500 as the number of intervals at which the output will be saved during the analysis.
+
 *In the step Blast, I created a Symmetry/Antisymmetry/Encastre mechanical boundary condition named Fix edges. 
+
 *I applied the boundary condition to the edges of the plate using the geometry set Edge, and specify ENCASTRE (U1 = U2 = U3 = UR1 = UR2 = UR3 = 0) to fully constrain the set.
+
 *In the Model Tree, I double-clicked the Loads container. 
+
 *In the Created Load dialog box that appears, I named the load Pressure load and selected Blast as the step in which it will be applied. 
+
 *I selected Mechanical as the load category and Pressure as the load type.
+
 *I selected all the surfaces associated with the plate. When I the appropriate surfaces are selected, I clicked Done.
+
 *I created a job named BlastLoad.  I blasted load on a flat plate with stiffeners: S4R elements (20x20 mesh) Normal stiffeners (20x2).
+
 *I saved your model in a model database file, and submit the job for analysis. 
 
 
