@@ -1,23 +1,23 @@
 # Computer-Aided-Engineer-Works-Abaqus-CAE-
 
-My Project topic is:
-10.5 Example: blast loading on a stiffened plate
+### My Project topic is:
+# 10.5 Example: blast loading on a stiffened plate
 
-*I created a three-dimensional  deformable part featuring an extruded shell base to represent the plate. I used about 5.0 piece size and named the piece Plate.
+I created a three-dimensional  deformable part featuring an extruded shell base to represent the plate. I used about 5.0 piece size and named the piece Plate.
 
-*I defined the stiffener geometry, added three vertical lines extending up from the plate. 
+I defined the stiffener geometry, added three vertical lines extending up from the plate. 
 
-*I constrained the three vertical lines so they are of equal length, and dimension one of them so that it is 0.1 m long.
+I constrained the three vertical lines so they are of equal length, and dimension one of them so that it is 0.1 m long.
 
-*I splited the plate at the points where it intersects the stiffeners.
+I splited the plate at the points where it intersects the stiffeners.
 
-*I dimensioned the horizontal distance between the plate endpoints, and set the value to 2.0 m.
+I dimensioned the horizontal distance between the plate endpoints, and set the value to 2.0 m.
 
-*I applied equal length constraints to the four horizontal segments of the line.
+I applied equal length constraints to the four horizontal segments of the line.
 
-*I extruded the sketch to a depth of 2.0 m to create the plate.
+I extruded the sketch to a depth of 2.0 m to create the plate.
 
-*I defined the material and section properties for the plate and the stiffeners.
+I defined the material and section properties for the plate and the stiffeners.
 
 *I created a material named "Steel" with a "mass density" of 7800 kg/m3, a "Young's modulus" of 210.0E9 Pa, and a "Poisson's" ratio of 0.3.
 
